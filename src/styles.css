@@ -1669,6 +1669,129 @@ img {
   line-height: 1.75;
 }
 
+.model-eval__meta,
+.model-eval__findings {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.model-eval__meta article,
+.model-eval__findings article {
+  min-height: 220px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.model-eval__meta strong {
+  margin-bottom: 10px;
+  color: var(--project-accent);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 560;
+  letter-spacing: -0.05em;
+}
+
+.model-eval__meta span,
+.model-eval__findings span {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.model-eval__meta p,
+.model-eval__findings p {
+  margin: auto 0 0;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  line-height: 1.72;
+}
+
+.model-eval__table-wrap {
+  margin-top: 16px;
+  overflow-x: auto;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: #0d0f14;
+}
+
+.model-eval__table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.model-eval__table th,
+.model-eval__table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.model-eval__table thead th {
+  color: var(--text-mute);
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.model-eval__table th:first-child {
+  min-width: 150px;
+  text-align: left;
+}
+
+.model-eval__table tbody th {
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 560;
+}
+
+.model-eval__table tbody th span {
+  margin-left: 8px;
+  padding: 4px 6px;
+  border: 1px solid color-mix(in srgb, var(--project-accent) 45%, var(--line));
+  border-radius: 4px;
+  color: var(--project-accent);
+  font-size: 0.58rem;
+  font-weight: 500;
+}
+
+.model-eval__table tbody tr:last-child th,
+.model-eval__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.model-eval__table tbody tr.is-recommended {
+  background: color-mix(in srgb, var(--project-accent) 7%, transparent);
+}
+
+.model-eval__table td strong {
+  color: var(--project-accent);
+  font-weight: 650;
+}
+
+.model-eval__note {
+  margin: 14px 0 42px;
+  color: var(--text-mute);
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+.model-eval__findings h3 {
+  margin: auto 0 14px;
+  font-size: 1.18rem;
+  font-weight: 560;
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+}
+
 /* Embedded product interactions */
 .product-demo {
   overflow: hidden;
@@ -3048,12 +3171,16 @@ img {
   .case-narrative,
   .brief-grid,
   .scope-board,
-  .measurement-grid {
+  .measurement-grid,
+  .model-eval__meta,
+  .model-eval__findings {
     grid-template-columns: 1fr;
   }
 
   .brief-grid article,
-  .measurement-grid article {
+  .measurement-grid article,
+  .model-eval__meta article,
+  .model-eval__findings article {
     min-height: 230px;
   }
 

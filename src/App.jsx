@@ -428,6 +428,70 @@ function MeasurementGrid({ items }) {
   )
 }
 
+function ModelEvaluation({ evaluation }) {
+  return (
+    <div className="model-eval">
+      <div className="model-eval__meta">
+        {evaluation.meta.map((item) => (
+          <article key={item.label} className="motion-reveal">
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+            <p>{item.copy}</p>
+          </article>
+        ))}
+      </div>
+
+      <div className="model-eval__table-wrap motion-reveal">
+        <table className="model-eval__table">
+          <thead>
+            <tr>
+              <th>模型</th>
+              <th>选题</th>
+              <th>文风</th>
+              <th>合规</th>
+              <th>总采纳率</th>
+              <th>硬门槛</th>
+              <th>Judge / 5</th>
+              <th>平均延时</th>
+              <th>失败</th>
+            </tr>
+          </thead>
+          <tbody>
+            {evaluation.rows.map((row) => (
+              <tr key={row.model} className={row.recommended ? 'is-recommended' : undefined}>
+                <th scope="row">
+                  {row.model}
+                  {row.recommended && <span>质量优先</span>}
+                </th>
+                <td>{row.topic}</td>
+                <td>{row.style}</td>
+                <td>{row.compliance}</td>
+                <td><strong>{row.accepted}</strong></td>
+                <td>{row.hardGate}</td>
+                <td>{row.judge}</td>
+                <td>{row.latency}</td>
+                <td>{row.failures}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="model-eval__note motion-reveal">{evaluation.note}</p>
+
+      <div className="model-eval__findings">
+        {evaluation.findings.map((item) => (
+          <article key={item.label} className="motion-reveal">
+            <span>{item.label}</span>
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 const casePresentation = {
   wxeditor: {
     flowTitle: <>把写作意图推进到<br />可发布的公众号草稿。</>,
@@ -467,7 +531,9 @@ function CasePage({ project }) {
     : project.id === 'ark'
       ? '切换 AI 能力、Agent、生成结果与方案确认页面'
       : '课程发现、画布创作与作品发布'
-  const sectionIndex = { atlas: '05', system: '06', measurement: '07' }
+  const sectionIndex = detail.evaluation
+    ? { atlas: '05', system: '06', evaluation: '07', measurement: '08' }
+    : { atlas: '05', system: '06', measurement: '07' }
 
   return (
     <>
@@ -624,6 +690,20 @@ function CasePage({ project }) {
             </div>
           </div>
         </section>
+
+        {detail.evaluation && (
+          <section className="case-section case-shell case-evaluation">
+            <div className="case-index">{sectionIndex.evaluation} / MODEL EVALUATION</div>
+            <div>
+              <div className="case-section__heading motion-reveal">
+                <Pill>MODEL EVALUATION</Pill>
+                <h2>{detail.evaluation.title}</h2>
+                <p className="case-section__intro">{detail.evaluation.intro}</p>
+              </div>
+              <ModelEvaluation evaluation={detail.evaluation} />
+            </div>
+          </section>
+        )}
 
         <section className="case-section case-shell">
           <div className="case-index">{sectionIndex.measurement} / MEASUREMENT</div>

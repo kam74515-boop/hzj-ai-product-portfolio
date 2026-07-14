@@ -1,7 +1,7 @@
 export const caseStudyDetails = {
   wxeditor: {
     evidence:
-      '内容依据：已上线产品界面、v3.0 PRD、Agent v3 设计、工具协议与三层评测规范。',
+      '内容依据：已上线产品界面、v3.0 PRD、Agent v3 设计、工具协议、216 条评测集与 2026-07-08 跨模型评测报告。',
     narrative: [
       'WXEditor 面向公众号内容生产流程，将文档、模板、素材、AI 能力与微信发布整合在同一工作台，减少跨工具复制、格式修复和需求重复说明。',
       '产品重点是 AI 修改的可控性。文档采用稳定块结构，写入、局部修改、套版和配图分别通过明确工具执行，并在发布前检查微信兼容性、权限和内容安全。',
@@ -153,6 +153,94 @@ export const caseStudyDetails = {
         P1 --> G
         L --> T --> G --> R --> O
         G -. "有限修复不超过 2 次" .-> L`,
+    },
+    evaluation: {
+      title: '固定评测集下的模型对比结果。',
+      intro:
+        '以下为 2026-07-08 的评测快照。生成层使用线上原样 Prompt，统一比较选题、文风和合规三类任务；结果不是实时线上监控数据。',
+      meta: [
+        {
+          value: '216 条',
+          label: '固定评测集',
+          copy: '选题 84 条、文风 72 条、合规 60 条，覆盖资讯、营销、品牌、知识、情感和带货六类场景。',
+        },
+        {
+          value: '120 次',
+          label: '本轮模型调用',
+          copy: '4 个模型各抽取 30 例，每个模型在三个维度各运行 10 例。',
+        },
+        {
+          value: '双层评分',
+          label: '采纳口径',
+          copy: '确定性硬门槛全部通过，并且中立 Judge 评分不低于 4/5，才计为采纳。',
+        },
+      ],
+      rows: [
+        {
+          model: 'GLM-5.2',
+          topic: '80%',
+          style: '100%',
+          compliance: '100%',
+          accepted: '93.3%',
+          hardGate: '93.3%',
+          judge: '4.8',
+          latency: '6.21s',
+          failures: '0',
+          recommended: true,
+        },
+        {
+          model: 'DeepSeek-V4-Pro',
+          topic: '90%',
+          style: '100%',
+          compliance: '80%',
+          accepted: '90.0%',
+          hardGate: '93.3%',
+          judge: '4.6',
+          latency: '4.95s',
+          failures: '0',
+        },
+        {
+          model: 'GPT-5.5',
+          topic: '80%',
+          style: '100%',
+          compliance: '90%',
+          accepted: '90.0%',
+          hardGate: '96.7%',
+          judge: '4.6',
+          latency: '7.81s',
+          failures: '0',
+        },
+        {
+          model: 'Gemini-3.5-Flash',
+          topic: '50%',
+          style: '100%',
+          compliance: '80%',
+          accepted: '76.7%',
+          hardGate: '76.7%',
+          judge: '4.89',
+          latency: '24.12s',
+          failures: '3',
+        },
+      ],
+      findings: [
+        {
+          label: '质量优先',
+          title: '正式发布稿使用 GLM-5.2',
+          copy: '本轮总采纳率 93.3%，文风与合规维度均为 100%，综合质量分 94.4。',
+        },
+        {
+          label: '效率优先',
+          title: '高频轻任务使用 DeepSeek-V4-Pro',
+          copy: '平均延时 4.95 秒，在零调用失败的模型中最低；适合标题联想、摘要和批量草稿。',
+        },
+        {
+          label: '合规机制',
+          title: '生成后保留确定性红线扫描',
+          copy: '合规不能只依赖 Prompt。极限词、医疗承诺、金融承诺和虚假承诺继续由规则层拦截。',
+        },
+      ],
+      note:
+        'Judge 使用 GLM-4.6，且不属于本轮参测版本。采纳率以确定性规则为主口径，Judge 仅补充内容质量判断。',
     },
     measurement: [
       {
