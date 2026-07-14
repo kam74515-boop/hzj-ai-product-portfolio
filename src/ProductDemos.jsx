@@ -42,7 +42,7 @@ const arkViews = [
     label: 'AI 能力中心',
     path: '/ai',
     kicker: '能力入口',
-    detail: '用任务卡而不是模型名解释产品能为家居用户做什么。',
+    detail: '用家居任务描述能力范围，避免向用户暴露模型名称。',
     signal: '任务发现',
   },
   {
@@ -96,7 +96,7 @@ function WxEditorEmbed({ placement }) {
       <div className="real-embed__bar">
         <div>
           <span>WXEDITOR / AUTHENTICATED WORKSPACE</span>
-          <strong>已登录完整编辑工作台</strong>
+          <strong>已登录编辑工作台</strong>
         </div>
         <a href="https://wxditor.chat/" target="_blank" rel="noreferrer">
           查看线上产品 <ExternalLink size={15} />
@@ -106,14 +106,14 @@ function WxEditorEmbed({ placement }) {
         <div className="real-embed__viewport">
           {loading && <div className="real-embed__loading"><LoaderCircle size={18} /> 正在加载已登录工作台…</div>}
           <iframe
-            title="WXEditor 已登录完整编辑工作台"
+            title="WXEditor 已登录编辑工作台"
             src="/wxeditor-app/index.html?embed=workbench-v2#/portfolio-editor"
             allow="clipboard-read; clipboard-write"
             onLoad={RefreshOnLoad({ setLoading })}
           />
         </div>
       </div>
-      <p className="real-embed__note">作品集固定进入已登录完整工作台；三栏编辑器、素材 Dock、正文画布和 AI 助手均来自 WXEditor 前端源码，并使用本地演示数据解除登录与后端依赖。</p>
+      <p className="real-embed__note">工作台使用演示数据运行，不依赖登录和后端服务；三栏编辑器、素材 Dock、正文画布和 AI 助手来自 WXEditor 前端项目。</p>
     </div>
   )
 }
@@ -145,18 +145,18 @@ function ArkSourceEmbed({ placement }) {
       <div className="real-embed__bar">
         <div>
           <span>ARK / ORIGINAL REACT SOURCE</span>
-          <strong>四个真实产品视图</strong>
+          <strong>四个产品页面</strong>
         </div>
-        <span className="real-embed__status"><i /> 源码构建</span>
+        <span className="real-embed__status"><i /> 交互构建</span>
       </div>
       <div className="ark-source-embed__showcase">
         <aside className="ark-source-embed__rail">
           <div className="ark-source-embed__rail-intro">
             <span>MINI PROGRAM JOURNEY</span>
-            <h3>把一次家居需求，推进到可确认的空间方案。</h3>
-            <p>右侧直接运行 ARK 原 React 项目；左侧按小程序任务链切换真实页面。</p>
+            <h3>从家居需求输入到空间方案确认</h3>
+            <p>左侧切换任务阶段，右侧展示对应的小程序页面。</p>
           </div>
-          <div className="ark-source-embed__tabs" role="tablist" aria-label="ARK 原源码视图">
+          <div className="ark-source-embed__tabs" role="tablist" aria-label="ARK 交互页面">
             {arkViews.map((view, index) => (
               <button
                 key={view.id}
@@ -182,10 +182,10 @@ function ArkSourceEmbed({ placement }) {
         <div className="ark-source-embed__device-stage">
           <div className="ark-device" aria-label={`ARK 小程序 · ${activeView.label}`}>
             <div className="real-embed__viewport ark-source-embed__frame">
-              {loading && <div className="real-embed__loading"><LoaderCircle size={18} /> 正在加载 ARK 原项目…</div>}
+              {loading && <div className="real-embed__loading"><LoaderCircle size={18} /> 正在加载 ARK 页面…</div>}
               <iframe
                 key={activeId}
-                title={`ARK ${activeView.label}原源码视图`}
+                title={`ARK ${activeView.label}交互页面`}
                 src={src}
                 onLoad={RefreshOnLoad({ setLoading })}
               />
@@ -193,7 +193,7 @@ function ArkSourceEmbed({ placement }) {
           </div>
         </div>
       </div>
-      <p className="real-embed__note">保留小程序内容比例与克制的胶囊设备提示；页面、数据和内部路由均来自 ARK 原 React 项目。</p>
+      <p className="real-embed__note">保持小程序页面比例；页面、演示数据和内部路由来自 ARK React 项目。</p>
     </div>
   )
 }
@@ -259,7 +259,7 @@ function AigcEvidenceTour({ placement }) {
           </div>
         </div>
       </div>
-      <p>课程页、无限画布与作品社区组成完整的学习和创作路径。</p>
+      <p>课程页、无限画布与作品社区对应学习、创作和发布三个阶段。</p>
     </div>
   )
 }

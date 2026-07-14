@@ -141,12 +141,12 @@ function Home() {
           <div className="hero__copy motion-hero">
             <Pill>AI PRODUCT MANAGER · 2026</Pill>
             <h1>
-              把不确定的模型能力，
-              <em>做成用户敢用的产品。</em>
+              以用户和业务需求为起点，
+              <em>设计可实施的 AI 产品。</em>
             </h1>
             <p>
-              我是 Karl，关注 AI 应用的最后一公里：从用户问题、产品逻辑与 UI，
-              到 Agent、评测、商业闭环和真正上线。
+              我是 Karl，负责 AI 产品的需求分析、方案设计与落地，
+              工作涵盖交互、Agent、模型评测、商业化与上线协同。
             </p>
             <div className="hero__actions">
               <a className="button button--primary" href="#cases">
@@ -175,21 +175,21 @@ function Home() {
         </section>
 
         <section className="proof home-shell motion-reveal" aria-label="作品集概览">
-          <div><strong>03</strong><span>个端到端产品案例</span></div>
-          <div><strong>02</strong><span>个已上线产品</span></div>
-          <div><strong>01</strong><span>套高保真商业原型</span></div>
-          <p>从需求定义到界面、Agent、评测与商业化</p>
+          <div><strong>03</strong><span>个 AI 产品案例</span></div>
+          <div><strong>02</strong><span>个上线产品</span></div>
+          <div><strong>01</strong><span>个产品设计方案</span></div>
+          <p>覆盖需求分析、产品设计、Agent 方案、评测与商业化</p>
         </section>
 
         <section className="section home-shell" id="cases">
           <div className="section-heading motion-reveal">
             <div>
               <Pill>SELECTED CASES</Pill>
-              <h2>不是功能清单，<br />是三条完整的产品逻辑。</h2>
+              <h2>三个产品案例，<br />分别说明问题、方案与验证。</h2>
             </div>
             <p>
-              每个案例都回答同一组问题：用户为什么需要它、AI 在哪里创造价值、
-              出错时如何控制，以及产品如何到达真实业务终点。
+              案例包含用户场景、业务目标、核心方案、AI 能力边界、
+              系统设计和验证指标。
             </p>
           </div>
           <div className="project-grid">
@@ -204,9 +204,9 @@ function Home() {
             <div className="section-heading section-heading--light motion-reveal">
               <div>
                 <Pill>PRODUCT PRACTICE</Pill>
-                <h2>以用户价值定义产品，<br />用商业结果验证决策。</h2>
+                <h2>兼顾用户需求、商业目标<br />与技术可行性。</h2>
               </div>
-              <p>我从用户场景和业务目标共同定义问题，评估 AI 能力、成本与风险，再通过产品机制、数据指标和持续迭代推进落地。</p>
+              <p>从用户场景和业务目标定义问题，结合 AI 能力、成本与风险制定方案，并通过指标和用户反馈验证。</p>
             </div>
             <div className="principle-grid">
               {principles.map((item) => (
@@ -223,10 +223,10 @@ function Home() {
         <section className="about home-shell" id="about">
           <div className="about__copy motion-reveal">
             <Pill>ABOUT KARL</Pill>
-            <h2>能定义产品，也愿意把原型真正跑起来。</h2>
+            <h2>产品策略、交互设计与 AI 技术方案。</h2>
             <p>
-              我的工作横跨产品策略、用户流程、交互原型、AI 能力设计与工程落地。
-              我更相信能被操作、被测试、被用户指出问题的产品，而不是停在演示稿里的概念。
+              工作范围包括需求分析、用户流程、交互原型、Agent 与检索方案、模型评测及商业化设计。
+              根据项目阶段与研发协作推进实现和验证。
             </p>
           </div>
           <div className="about__skills motion-reveal">
@@ -244,16 +244,16 @@ function Home() {
 function Gallery({ items, projectId }) {
   const [active, setActive] = useState(null)
   const summaryCopy = projectId === 'ark'
-    ? '先看商业与系统证据，再看四张真实小程序 UI；点击任一界面查看原尺寸细节。'
+    ? '包含产品与商业逻辑，以及四个小程序界面；点击可查看原尺寸。'
     : projectId === 'wxeditor'
-      ? '从桌面工作台、官网到公众号侧边扩展，按 Web 产品触点展开。'
-      : '按课程发现、画布创作与作品反馈三段闭环展开真实页面。'
+      ? '包含桌面工作台、产品官网和公众号侧边扩展三个产品触点。'
+      : '包含课程发现、画布创作和作品发布三个页面。'
   const groups = projectId === 'ark'
     ? [
         {
           id: 'evidence',
           label: '产品与商业逻辑',
-          copy: '产品总览、业务闭环、数据飞轮与方案拆单，均按原始宽高比呈现。',
+          copy: '包含产品总览、业务流程、数据反馈机制与方案拆单。',
           items: items.filter((item) => item.group === 'evidence'),
         },
         {
@@ -349,7 +349,7 @@ function CaseBrief({ detail }) {
     <div>
       <div className="case-section__heading motion-reveal">
         <Pill>PROJECT BRIEF</Pill>
-        <h2>先把产品命题说完整。</h2>
+        <h2>项目背景、目标与范围。</h2>
       </div>
       <div className="case-narrative motion-reveal">
         {detail.narrative.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -432,9 +432,9 @@ const casePresentation = {
   wxeditor: {
     flowTitle: <>把写作意图推进到<br />可发布的公众号草稿。</>,
     decisionTitle: <>围绕文档控制权，<br />确定 Agent 的产品边界。</>,
-    atlasTitle: <>用桌面产品的真实宽度，<br />展开编辑、协作与发布触点。</>,
-    systemTitle: <>Agent 如何安全地进入文档工作流。</>,
-    metricTitle: <>内容生产效率之外，<br />同时验证质量与可控性。</>,
+    atlasTitle: <>编辑、协作<br />与发布界面。</>,
+    systemTitle: <>文档工作流中的 Agent 执行框架。</>,
+    metricTitle: <>内容效率、质量<br />与可控性指标。</>,
   },
   'aigc-education': {
     flowTitle: <>课程学习、画布创作<br />与作品发布流程。</>,
@@ -444,11 +444,11 @@ const casePresentation = {
     metricTitle: <>学习、创作<br />与作品发布指标。</>,
   },
   ark: {
-    flowTitle: <>沿着小程序任务流，<br />从需求走到方案确认。</>,
-    decisionTitle: <>让手机里的每一步，<br />都继续连接真实交易。</>,
-    atlasTitle: <>先看小程序 UI，<br />再看它如何连接商业闭环。</>,
-    systemTitle: <>从小程序交互到检索、生成与履约。</>,
-    metricTitle: <>既验证生成体验，<br />也验证商品与交易结果。</>,
+    flowTitle: <>从需求输入到方案确认<br />的任务流程。</>,
+    decisionTitle: <>移动端交互<br />与交易流程的衔接。</>,
+    atlasTitle: <>小程序界面<br />与业务结构。</>,
+    systemTitle: <>需求理解、检索、生成与履约系统。</>,
+    metricTitle: <>生成质量、商品匹配<br />与交易指标。</>,
   },
 }
 
@@ -458,14 +458,14 @@ function CasePage({ project }) {
   const hasInteractiveDemo = detail.demo.enabled
   const hasHeroInteraction = hasInteractiveDemo || project.id === 'aigc-education'
   const liveLabel = project.id === 'wxeditor'
-    ? 'AUTHENTICATED WORKSPACE / SOURCE'
+    ? 'PRODUCT WORKSPACE'
     : project.id === 'ark'
-      ? 'ORIGINAL SOURCE / INTERACTIVE'
+      ? 'INTERACTIVE PRODUCT UI'
       : 'PRODUCT UI / THREE SURFACES'
   const liveDescription = project.id === 'wxeditor'
-    ? '直接进入已登录完整工作台，体验素材、正文与 AI 协作链路'
+    ? '已登录编辑工作台：素材、正文编辑与 AI 协作'
     : project.id === 'ark'
-      ? '切换真实源码页面，体验 AI 到方案链路'
+      ? '切换 AI 能力、Agent、生成结果与方案确认页面'
       : '课程发现、画布创作与作品发布'
   const sectionIndex = { atlas: '05', system: '06', measurement: '07' }
 
@@ -631,7 +631,7 @@ function CasePage({ project }) {
             <div className="case-section__heading motion-reveal">
               <Pill>SUCCESS & GUARDRAILS</Pill>
               <h2>{presentation.metricTitle}</h2>
-              <p className="case-section__intro">区分已观察事实、PRD 定义与建议验证口径，不把目标阈值包装成线上成绩。</p>
+              <p className="case-section__intro">指标区分现状、产品目标和建议验证口径；未实测数据均标注为目标值。</p>
             </div>
             <MeasurementGrid items={detail.measurement} />
           </div>
@@ -662,7 +662,7 @@ function Footer() {
     <footer className="footer">
       <div>
         <Brand />
-        <p>让 AI 不只惊艳一次，而是持续解决真实问题。</p>
+        <p>AI 产品经理作品集：内容创作、教育与家居导购。</p>
       </div>
       <div className="footer__links">
         <a href={`mailto:${EMAIL}`}><Mail size={17} /> Email</a>
