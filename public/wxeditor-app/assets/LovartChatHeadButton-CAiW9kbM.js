@@ -1,0 +1,1 @@
+import{j as e}from"./index-jtUSPSEH.js";function s(a){const{title:t,onClick:o,children:n}=a;return e.jsx("button",{type:"button",className:"lovart-chat-head-btn",title:t,"aria-label":t,onClick:o,children:n})}export{s as L};

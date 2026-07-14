@@ -1,0 +1,2 @@
+import{r as t,E as r,j as s}from"./index-jtUSPSEH.js";import{B as l}from"./BlockEditor-CFfls5UH.js";import"./purify.es-DIZLy5JB.js";function x(){const i=t.useMemo(()=>r.slice(0,6).map(e=>e.html).join(`
+`),[]),[a,o]=t.useState(0),n=t.useRef("");return s.jsx("div",{style:{position:"fixed",inset:0,display:"flex",flexDirection:"column"},children:s.jsx("div",{style:{flex:1,minHeight:0},children:s.jsx(l,{initialHtml:i,onChange:e=>{n.current=e,o(e.length)}})})})}export{x as default};
