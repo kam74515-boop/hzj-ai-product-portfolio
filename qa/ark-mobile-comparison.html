@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARK mobile embed QA comparison</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 28px; background: #08090b; color: #f2f4f7; font-family: Inter, "PingFang SC", sans-serif; }
+      h1 { margin: 0 0 8px; font-size: 22px; }
+      p { margin: 0 0 22px; color: #9198a4; }
+      main { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      figure { margin: 0; padding: 14px; border: 1px solid #2a2e35; background: #111318; }
+      figcaption { margin-bottom: 12px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+      img { display: block; width: 100%; height: auto; }
+    </style>
+  </head>
+  <body>
+    <h1>ARK 原源码嵌入：同视口前后对比</h1>
+    <p>884 × 798 · 检查小程序内容比例、源码 UI、胶囊状态区与桌面容器适配</p>
+    <main>
+      <figure>
+        <figcaption>Before · 宽屏拉伸 / 页面特征丢失</figcaption>
+        <img src="./ark-embed-884x798.png" alt="修改前 ARK 嵌入" />
+      </figure>
+      <figure>
+        <figcaption>After · 390px 源码视口 / 手机外壳</figcaption>
+        <img src="./ark-v3-884x798.png" alt="修改后 ARK 嵌入" />
+      </figure>
+    </main>
+  </body>
+</html>
