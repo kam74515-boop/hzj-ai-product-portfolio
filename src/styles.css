@@ -3372,15 +3372,11 @@ img {
 }
 
 /* 2026 portfolio closeout: product-shaped media, source embeds, readable diagrams. */
-.project-card--web .project-card__media {
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: 1512 / 797;
-}
-
-.project-card:not(.project-card--featured):not(.project-card--web) .project-card__media {
+.project-card--web .project-card__media,
+.project-card--ui-strip .project-card__media {
   height: 390px;
   min-height: 390px;
+  aspect-ratio: auto;
 }
 
 .project-card--featured .project-card__media {
@@ -3723,16 +3719,12 @@ img {
     border-bottom: 1px solid var(--line);
   }
 
-  .project-card--web .project-card__media {
-    height: auto !important;
-    min-height: 0 !important;
-  }
-
   .project-card--featured .project-card__media {
     height: 510px !important;
     min-height: 510px !important;
   }
 
+  .project-card--web .project-card__media,
   .project-card--ui-strip .project-card__media {
     height: 430px !important;
     min-height: 430px !important;
@@ -3769,6 +3761,12 @@ img {
 }
 
 @media (max-width: 760px) {
+  .project-card--web .project-card__media,
+  .project-card--ui-strip .project-card__media {
+    height: 360px !important;
+    min-height: 360px !important;
+  }
+
   .ark-source-embed__tabs {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
