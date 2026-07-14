@@ -183,10 +183,10 @@ export const projects = [
     status: '产品设计方案',
     tag: 'AI Commerce · Multimodal',
     title: 'ARK AI 家居导购',
-    subtitle: '把“我想要这样的家”翻译成商品、空间方案、报价与订单',
+    subtitle: '家居需求分析、商品匹配、空间方案与报价订单流程',
     summary:
       '面向家居搭配与装修用户，连接自然语言需求、空间照片、商品库和生成式效果图，并将空间方案关联到商品、商家报价与拆分订单。',
-    role: '0→1 产品定义 · 信息架构 · 原型 · 模型评测',
+    role: '0→1 产品定义 · 信息架构 · 交互设计 · 模型评测',
     period: '2026',
     accent: '#ddff63',
     heroImage: '/assets/ark-home.png',
