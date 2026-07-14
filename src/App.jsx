@@ -467,22 +467,7 @@ function CasePage({ project }) {
     : project.id === 'ark'
       ? '切换真实源码页面，体验 AI 到方案链路'
       : '课程发现、画布创作与作品发布'
-  const sectionIndex = detail.demo.enabled
-    ? { atlas: '06', system: '07', measurement: '08' }
-    : { atlas: '05', system: '06', measurement: '07' }
-  const evidenceRecap = project.id === 'wxeditor'
-    ? {
-        eyebrow: 'AUTHENTICATED WORKSPACE ABOVE THE FOLD',
-        title: '已登录编辑工作台已前置到案例首屏。',
-        copy: '首屏直接运行 WXEditor 前端源码中的完整编辑工作台，跳过登录和注册；素材 Dock、正文画布、块级编辑、拖拽、撤销与 AI 助手均保持可交互。',
-        link: '回到已登录工作台',
-      }
-    : {
-        eyebrow: 'ORIGINAL SOURCE EMBEDDED ABOVE THE FOLD',
-        title: 'ARK 原项目代码已前置到案例首屏。',
-        copy: '案例直接加载 ARK React 原项目的 AI 能力中心、Agent、生成结果和方案确认视图，内部路由与产品交互保持可用。',
-        link: '回到源码界面',
-      }
+  const sectionIndex = { atlas: '05', system: '06', measurement: '07' }
 
   return (
     <>
@@ -594,27 +579,6 @@ function CasePage({ project }) {
             </div>
           </div>
         </section>
-
-        {detail.demo.enabled && (
-          <section className="case-demo">
-            <div className="case-shell case-demo__inner">
-              <div className="case-index">05 / PRODUCT EVIDENCE</div>
-              <div>
-                <div className="case-section__heading motion-reveal">
-                  <Pill>{detail.demo.label}</Pill>
-                  <h2>{detail.demo.title}</h2>
-                  <p className="case-section__intro">{detail.demo.copy}</p>
-                </div>
-                <div className="demo-recap motion-reveal">
-                  <span>{evidenceRecap.eyebrow}</span>
-                  <strong>{evidenceRecap.title}</strong>
-                  <p>{evidenceRecap.copy}</p>
-                  <a href="#interactive-demo">{evidenceRecap.link} <ArrowUpRight size={16} /></a>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
 
         <section className="case-section case-shell">
           <div className="case-index">{sectionIndex.atlas} / UI ATLAS</div>

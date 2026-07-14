@@ -178,9 +178,6 @@ export const caseStudyDetails = {
     ],
     demo: {
       enabled: true,
-      label: '已登录工作台',
-      title: '首屏直接进入可操作的 WXEditor 编辑状态',
-      copy: '案例使用前端源码中的完整编辑工作台，并以本地演示数据维持已登录状态；用户可以直接检查素材、正文、块级编辑、拖拽、撤销与 AI 助手等核心交互。',
     },
   },
 
@@ -322,9 +319,6 @@ export const caseStudyDetails = {
     ],
     demo: {
       enabled: false,
-      label: '产品页面',
-      title: '课程、画布与作品页面',
-      copy: '通过三个主要产品页面说明学习、创作与发布流程。',
     },
   },
 
@@ -522,9 +516,6 @@ export const caseStudyDetails = {
     ],
     demo: {
       enabled: true,
-      label: '原项目交互',
-      title: '首屏直接运行 ARK React 原源码',
-      copy: '在 AI 能力中心、Agent、生成结果和方案确认四个真实路由间切换，检查原项目的产品 UI、状态与内部导航。',
     },
   },
 }
