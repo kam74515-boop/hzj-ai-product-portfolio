@@ -1676,6 +1676,12 @@ img {
   gap: 12px;
 }
 
+.case-evaluation .case-section__heading h2 {
+  max-width: 1040px;
+  font-size: clamp(2.35rem, 4.2vw, 3.6rem);
+  letter-spacing: -0.045em;
+}
+
 .model-eval__meta article,
 .model-eval__findings article {
   min-height: 220px;
